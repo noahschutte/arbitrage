@@ -1,11 +1,12 @@
 import React from 'react';
+
 import MarketSelector from './MarketSelector';
-import OrderBook from './OrderBook';
+import OrderBooksContainer from './OrderBooksContainer';
 
 const DashboardPage = () => (
-  <div>
+  <div className="container">
     <MarketSelector />
-    <OrderBook />
+    <OrderBooksContainer />
   </div>
 );
 

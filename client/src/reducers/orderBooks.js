@@ -1,13 +1,15 @@
+import * as types from '../constants';
+
 const orderBooksReducerDefaultState = {
   bids: [],
   asks: [],
 };
 
 export default (state = orderBooksReducerDefaultState, action) => {
-  const { type, market } = action;
+  const { type, orderBooks } = action;
   switch (type) {
-    case 'UPDATE_ORDER_BOOKS':
-      return market;
+    case types.SET_ORDER_BOOKS:
+      return orderBooks;
     default:
       return state;
   }

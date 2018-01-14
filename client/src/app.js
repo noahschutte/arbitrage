@@ -6,20 +6,25 @@ import './styles/styles.scss';
 
 import AppRouter from './routers/AppRouter';
 import configureStore from './store/configureStore';
+import { fetchOrderBooksBegin } from './actions/orderBooks';
 
 const store = configureStore();
 
-store.subscribe(() => {
-  const state = store.getState();
-  console.log(state);
-});
-
-console.log(store.getState());
-
-const jsx = (
+const App = (
   <Provider store={store}>
     <AppRouter />
   </Provider>
 );
 
-ReactDOM.render(jsx, document.getElementById('app'));
+// ReactDOM.render(App, document.getElementById('app'));
+
+ReactDOM.render(<p>Loading...</p>, document.getElementById('app'));
+
+const requestLoop = () => setInterval(() => {
+  const { market } = store.getState();
+  store.dispatch(fetchOrderBooksBegin(market)).then(() => {
+    ReactDOM.render(App, document.getElementById('app'));
+  });
+}, 3000);
+
+requestLoop();

@@ -34,8 +34,63 @@ async function getOrderBooks(market) {
   combinedOrderBook.asks.sort((a, b) => a.rate - b.rate);
   // Sort the bids order book by descending price
   combinedOrderBook.bids.sort((a, b) => b.rate - a.rate);
+  // console.log('combinedOrderBook: ', combinedOrderBook);
 
-  return combinedOrderBook;
+  const asksPriceMap = {};
+  combinedOrderBook.asks.map((ask) => {
+    if (asksPriceMap[ask.rate]) {
+      asksPriceMap[ask.rate].push(ask);
+    } else {
+      asksPriceMap[ask.rate] = [ask];
+    }
+  });
+  const askPriceKeys = Object.entries(asksPriceMap);
+  const askOrderArray = askPriceKeys.map((rate) => {
+    return {
+      rate: rate[0],
+      quantity: rate[1].reduce((previous, order) => {
+        return previous + order.quantity;
+      }, 0),
+      exchange: rate[1].reduce((previous, order) => {
+        if (previous) {
+          return previous + ', ' + order.exchange;
+        } else {
+          return previous + order.exchange;
+        }
+      }, ''),
+    };
+  });
+  const bidsPriceMap = {};
+  combinedOrderBook.bids.map((bid) => {
+    if (bidsPriceMap[bid.rate]) {
+      bidsPriceMap[bid.rate].push(bid);
+    } else {
+      bidsPriceMap[bid.rate] = [bid];
+    }
+  });
+  const bidPriceKeys = Object.entries(bidsPriceMap);
+  const bidOrderArray = bidPriceKeys.map((rate) => {
+    return {
+      rate: rate[0],
+      quantity: rate[1].reduce((previous, order) => {
+        return previous + order.quantity;
+      }, 0),
+      exchange: rate[1].reduce((previous, order) => {
+        if (previous) {
+          return previous + ', ' + order.exchange;
+        } else {
+          return previous + order.exchange;
+        }
+      }, ''),
+    };
+  });
+
+  const reducedOrderBook = {
+    asks: askOrderArray,
+    bids: bidOrderArray,
+  };
+
+  return reducedOrderBook;
 }
 
 module.exports = {
