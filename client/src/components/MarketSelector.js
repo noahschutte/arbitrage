@@ -25,8 +25,8 @@ const MarketSelector = ({ dispatch, market }) => (
 );
 
 MarketSelector.propTypes = {
-  dispatch: PropTypes.element.isRequired,
-  market: PropTypes.element.isRequired,
+  dispatch: PropTypes.func.isRequired,
+  market: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = ({ market }) => ({ market });

@@ -10,7 +10,7 @@ const OrderBook = ({ market }) => (
 );
 
 OrderBook.propTypes = {
-  market: PropTypes.element.isRequired,
+  market: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = ({ market }) => ({ market });
