@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import editMarket from '../actions/market';
@@ -22,6 +23,11 @@ const MarketSelector = ({ dispatch, market }) => (
     <div>{market}</div>
   </div>
 );
+
+MarketSelector.propTypes = {
+  dispatch: PropTypes.element.isRequired,
+  market: PropTypes.element.isRequired,
+};
 
 const mapStateToProps = ({ market }) => ({ market });
 
