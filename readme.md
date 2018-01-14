@@ -1,5 +1,5 @@
 # Arbitrage Documentation
--------------
+
 ##  How do I run the project locally with a clean environment?
 ### Download global dependencies:
   - node
