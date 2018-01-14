@@ -1,3 +1,4 @@
+const cors = require('cors');
 const express = require('express');
 const Log = require('log');
 
@@ -5,6 +6,8 @@ const app = express();
 const log = new Log('info');
 const orderBooks = require('./src/routes/orderBooks');
 const port = process.env.PORT || 3000;
+
+app.use(cors());
 
 app.get('/:market', async (req, res) => {
   const market = req.params.market;

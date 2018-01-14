@@ -4,8 +4,25 @@
   padding: 0 4rem;
 }
 
+.market-selector-container {
+  background-color: #AAABBC;
+  margin-top: 1.5rem;
+  width: 15rem;
+}
+
+.order-book-container {
+  margin-top: 10px;
+  display: flex;
+}
+
+.order-book-table {
+  border: solid black 2px;
+  height: 100px;
+  width: 50px;
+}
+
 @media (min-width: 45rem) {
-  * {
-    color: red;
-  }
+  // * {
+  //   color: red;
+  // }
 }

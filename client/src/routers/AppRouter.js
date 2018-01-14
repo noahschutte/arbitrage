@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import DashboardPage from '../components/DashboardPage';
-import NotFoundPage from '../components/NotFoundPage';
 import Header from '../components/Header';
 
 const AppRouter = () => (
@@ -10,8 +9,7 @@ const AppRouter = () => (
     <div>
       <Header />
       <Switch>
-        <Route path="/" component={DashboardPage} exact />
-        <Route component={NotFoundPage} />
+        <Route path="/" component={DashboardPage} />
       </Switch>
     </div>
   </BrowserRouter>
