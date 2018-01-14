@@ -1,6 +1,3 @@
 node_modules/
 .eslintrc.js
-client/public/bundle.js
-client/public/bundle.js.map
-client/public/styles.css
-client/public/styles.css.map
+client/public/dist
