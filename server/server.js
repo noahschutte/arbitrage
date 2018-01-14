@@ -17,7 +17,7 @@ app.get('/:market', async (req, res) => {
 });
 
 app.listen(port, () => {
-  log.info('Server is running!');
+  log.info(`Server is running on port: ${port}`);
 });
 
 module.exports = app;

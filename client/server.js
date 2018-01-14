@@ -4,7 +4,7 @@ const path = require('path');
 
 const app = express();
 const log = new Log('info');
-const port = process.env.PORT || 8081;
+const port = process.env.PORT || 8080;
 const publicPath = path.join(__dirname, 'public');
 
 app.use(express.static(publicPath));
@@ -14,5 +14,5 @@ app.get('*', (req, res) => {
 });
 
 app.listen(port, () => {
-  log.info('Server is running!');
+  log.info(`Server is running on port: ${port}`);
 });
