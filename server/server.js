@@ -1,7 +1,10 @@
 const express = require('express');
+const Log = require('log');
+
 const app = express();
-const port = process.env.PORT || 3000;
+const log = new Log('info');
 const orderBooks = require('./src/routes/orderBooks');
+const port = process.env.PORT || 3000;
 
 app.get('/:market', async (req, res) => {
   const market = req.params.market;
@@ -13,6 +16,8 @@ app.get('/:market', async (req, res) => {
   }
 });
 
-app.listen(port);
+app.listen(port, () => {
+  log.info('Server is running!');
+});
 
 module.exports = app;

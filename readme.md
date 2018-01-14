@@ -14,7 +14,7 @@
 1. `cd client`
 1. `yarn install` || `npm install`
 1. `yarn start` || `npm start`
-
+--------------------------
 ## How do I run the tests?
 _Glad you asked :)_
 ### Run tests on node server:
