@@ -30,11 +30,13 @@
     "webpack-dev-server": "^2.10.1"
   },
   "scripts": {
+    "start": "node server.js",
     "build:dev": "webpack",
     "build:prod": "webpack -p --env production",
     "dev-server": "webpack-dev-server",
     "lint": "eslint app",
-    "serve": "live-server public/"
+    "serve": "live-server public/",
+    "heroku-postbuild": "yarn run build:prod"
   },
   "main": "index.js",
   "license": "MIT",

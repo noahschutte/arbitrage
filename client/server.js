@@ -4,7 +4,7 @@ const path = require('path');
 
 const app = express();
 const log = new Log('info');
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8081;
 const publicPath = path.join(__dirname, 'public');
 
 app.use(express.static(publicPath));
