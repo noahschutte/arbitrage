@@ -9,13 +9,15 @@ const OrderBook = ({ type, orders }) => {
       { orders.length < 1 ? <p>Loading...</p> :
         (
           <table>
-            <tbody>
+            <thead>
               <tr>
                 <th>Quantity</th>
                 <th>Price</th>
                 <th>Exchange</th>
                 <th>Total</th>
               </tr>
+            </thead>
+            <tbody>
               {
                 orders.map(order => (
                   <tr className={order.arbitrage ? 'highlight' : null} key={Math.random()}>

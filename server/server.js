@@ -7,6 +7,12 @@ const log = new Log('info');
 const orderBooks = require('./src/routes/orderBooks');
 const port = process.env.PORT || 3000;
 
+/**
+ * Ignore Favicon requests
+ * @param {Array} req
+ * @param {String} res
+ * @param {String} next
+ */
 function ignoreFavicon(req, res, next) {
   if (req.originalUrl === '/favicon.ico') {
     res.status(204).json({nope: true});

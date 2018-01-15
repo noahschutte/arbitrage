@@ -44,9 +44,9 @@ function formatPoloniexResponse(orders) {
 }
 
 /**
- * Normalizes Poloniex orders to a standard format
+ * Reduces orders by comibing volume at each price point
  * @param {Array} orders
- * @return {Array} Returns an array of normalized orders
+ * @return {Array} Returns an array of orders
  */
 function reduceOrders(orders) {
   const ordersPriceMap = {};
@@ -77,10 +77,10 @@ function reduceOrders(orders) {
 }
 
 /**
- * Normalizes Poloniex orders to a standard format
+ * Sorts order by rate
  * @param {Array} orders
  * @param {String} sortDirection
- * @return {Array} Returns an array of normalized orders
+ * @return {Array} Returns an array of sorted orders
  */
 function sortOrders(orders, sortDirection) {
   if (sortDirection === 'ascending') {
