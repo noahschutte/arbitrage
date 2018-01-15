@@ -1,32 +1,35 @@
 .container {
-  max-width: 60rem;
   margin: 0 auto;
   padding: 0 4rem;
+  display: block;
 }
 
 .market-selector-container {
   background-color: #AAABBC;
   margin-top: 1.5rem;
   width: 15rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .order-book-container {
   margin-top: 10px;
   display: flex;
+  justify-content: center;
 }
 
 .order-book-table {
   border: solid black 2px;
-  height: 100px;
-  width: 50px;
 }
 
-.highlight {
-  background: yellow;
+.dashboard-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-@media (min-width: 45rem) {
-  // * {
-  //   color: red;
-  // }
+.error-container {
 }

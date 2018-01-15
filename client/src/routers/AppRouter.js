@@ -6,7 +6,7 @@ import Header from '../components/Header';
 
 const AppRouter = () => (
   <BrowserRouter>
-    <div>
+    <div className="container">
       <Header />
       <Switch>
         <Route path="/" component={DashboardPage} />

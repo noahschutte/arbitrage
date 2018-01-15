@@ -5,7 +5,7 @@ import OrderBooksContainer from './OrderBooksContainer';
 import ErrorContainer from './ErrorContainer';
 
 const DashboardPage = () => (
-  <div className="container">
+  <div className="dashboard-page">
     <MarketSelector />
     <ErrorContainer />
     <OrderBooksContainer />

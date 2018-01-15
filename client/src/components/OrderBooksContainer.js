@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import OrderBook from './OrderBook';
 
 const OrderBooksContainer = ({ asks, bids, isFetching }) => (
-  <div className="container order-book-container">
+  <div className="order-book-container">
     <OrderBook type="Asks" orders={asks} isFetching={isFetching} />
     <OrderBook type="Bids" orders={bids} isFetching={isFetching} />
   </div>

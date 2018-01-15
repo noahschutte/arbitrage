@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { updateMarket } from '../actions/orderBooks';
 
 const MarketSelector = ({ dispatch }) => (
-  <div className="container market-selector-container">
+  <div className="market-selector-container">
     <div>
       <button
         onClick={() => {

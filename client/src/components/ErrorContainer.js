@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 const ErrorContainer = ({ errorMessage }) => (
-  <p>{errorMessage}</p>
+  <p className="error-container">{errorMessage}</p>
 );
 
 ErrorContainer.propTypes = {
