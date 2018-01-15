@@ -6,7 +6,7 @@ import './styles/styles.scss';
 
 import AppRouter from './routers/AppRouter';
 import configureStore from './store/configureStore';
-import { fetchOrderBooksBegin } from './actions/orderBooks';
+import { fetchOrderBooks } from './actions/orderBooks';
 
 const store = configureStore();
 
@@ -16,15 +16,11 @@ const App = (
   </Provider>
 );
 
-// ReactDOM.render(App, document.getElementById('app'));
-
-ReactDOM.render(<p>Loading...</p>, document.getElementById('app'));
+ReactDOM.render(App, document.getElementById('app'));
 
 const requestLoop = () => setInterval(() => {
   const { market } = store.getState();
-  store.dispatch(fetchOrderBooksBegin(market)).then(() => {
-    ReactDOM.render(App, document.getElementById('app'));
-  });
+  store.dispatch(fetchOrderBooks(market));
 }, 3000);
 
 requestLoop();

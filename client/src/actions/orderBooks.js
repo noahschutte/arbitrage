@@ -3,15 +3,36 @@ import * as types from '../constants';
 const isProduction = process.env === 'production';
 const DB_URL = isProduction ? 'https://arbitrage-server.herokuapp.com/' : 'http://localhost:3000';
 
-export function setOrderBooks(orderBooks) {
+export function updateMarket(market = 1) {
   return {
-    type: types.SET_ORDER_BOOKS,
+    type: types.UPDATE_MARKET,
+    market,
+  };
+}
+
+export function fetchOrderBooksBegin() {
+  return {
+    type: types.FETCH_ORDER_BOOKS_BEGIN,
+  };
+}
+
+export function fetchOrderBooksHandleError(errorMessage) {
+  return {
+    type: types.FETCH_ORDER_BOOKS_HANDLE_ERROR,
+    errorMessage,
+  };
+}
+
+export function fetchOrderBooksComplete(orderBooks) {
+  return {
+    type: types.FETCH_ORDER_BOOKS_COMPLETE,
     orderBooks,
   };
 }
 
-export const fetchOrderBooksBegin = market => (
+export const fetchOrderBooks = market => (
   (dispatch) => {
+    dispatch(fetchOrderBooksBegin());
     const url = `${DB_URL}/${market}`;
     return fetch(url, {
       headers: {
@@ -22,8 +43,10 @@ export const fetchOrderBooksBegin = market => (
     })
       .then(response => response.json())
       .then((responseJSON) => {
-        dispatch(setOrderBooks(responseJSON));
+        dispatch(fetchOrderBooksComplete(responseJSON));
       })
-      .catch(err => alert(err));
+      .catch((err) => {
+        dispatch(fetchOrderBooksHandleError(err.message));
+      });
   }
 );
