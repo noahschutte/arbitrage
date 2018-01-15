@@ -19,8 +19,8 @@ const App = (
 ReactDOM.render(App, document.getElementById('app'));
 
 const requestLoop = () => setInterval(() => {
-  const { market } = store.getState();
-  store.dispatch(fetchOrderBooks(market));
+  const { orderBooks } = store.getState();
+  store.dispatch(fetchOrderBooks(orderBooks.market));
 }, 2000);
 
 requestLoop();
