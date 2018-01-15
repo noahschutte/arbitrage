@@ -20,7 +20,3 @@ _Glad you asked :)_
 ### Run tests on node server:
 1. `cd server`
 1. `yarn test` || `npm test`
-
-### Run tests on react project:
-1. `cd client`
-1. `yarn test` || `npm test`
