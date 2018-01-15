@@ -8,7 +8,7 @@ function formatBinanceResponse(orders) {
     return {
       rate: Number(order[0]),
       quantity: Number(order[1]),
-      exchange: 'binance',
+      exchange: 'Binance',
     };
   });
 }
@@ -23,7 +23,7 @@ function formatBittrexResponse(orders) {
     return {
       rate: order['Rate'],
       quantity: order['Quantity'],
-      exchange: 'bittrex',
+      exchange: 'Bittrex',
     };
   });
 }
@@ -38,7 +38,7 @@ function formatPoloniexResponse(orders) {
     return {
       rate: Number(order[0]),
       quantity: order[1],
-      exchange: 'poloniex',
+      exchange: 'Poloniex',
     };
   });
 }
