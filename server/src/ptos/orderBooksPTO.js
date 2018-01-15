@@ -28,6 +28,20 @@ class OrderBook {
     this.asks = ptoHelper.reduceOrders(asks);
     this.bids = ptoHelper.reduceOrders(bids);
   }
+
+  /**
+   * Apply highlight to order books
+   */
+  applyHighlight() {
+    for (let x = this.asks.length - 1; x >= 0; x--) {
+      for (let y = 0; y < this.bids.length; y++) {
+        if (this.asks[x].rate <= this.bids[y].rate) {
+          this.asks[x].arbitrage = true;
+          this.bids[y].arbitrage = true;
+        }
+      }
+    }
+  }
 };
 
 module.exports = {

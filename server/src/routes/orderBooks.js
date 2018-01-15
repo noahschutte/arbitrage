@@ -31,6 +31,9 @@ async function getOrderBooks(market) {
   const orderBooks = await Promise.all(promiseArray);
   const combinedOrderBook = new orderBooksPTO.OrderBook(orderBooks);
   combinedOrderBook.sortAndReduceOrderBook();
+
+  combinedOrderBook.applyHighlight();
+
   return combinedOrderBook;
 }
 

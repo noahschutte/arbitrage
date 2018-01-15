@@ -7,6 +7,16 @@ const log = new Log('info');
 const orderBooks = require('./src/routes/orderBooks');
 const port = process.env.PORT || 3000;
 
+function ignoreFavicon(req, res, next) {
+  if (req.originalUrl === '/favicon.ico') {
+    res.status(204).json({nope: true});
+  } else {
+    next();
+  }
+}
+
+app.use(ignoreFavicon);
+
 app.use(cors());
 
 app.get('/:market', async (req, res) => {

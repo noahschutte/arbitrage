@@ -12,15 +12,15 @@ const OrderBook = ({ type, orders }) => {
             <th>Quantity</th>
             <th>Price</th>
             <th>Exchange</th>
-            <th>Other</th>
+            <th>Total</th>
           </tr>
           {
             orders.map(order => (
-              <tr key={Math.random()}>
+              <tr className={order.arbitrage ? 'highlight' : null} key={Math.random()}>
                 <td>{order.quantity}</td>
                 <td>{order.rate}</td>
                 <td>{order.exchange}</td>
-                <td>Other</td>
+                <td>{order.quantity * order.rate}</td>
               </tr>
             ))
           }
