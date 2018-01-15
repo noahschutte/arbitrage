@@ -1,6 +1,6 @@
 import * as types from '../constants';
 
-const isProduction = process.env === 'production';
+const isProduction = process.env.NODE_ENV === 'production';
 const DB_URL = isProduction ? 'https://arbitrage-server.herokuapp.com' : 'http://localhost:3000';
 
 export function updateMarket(market = 1) {
