@@ -19,6 +19,15 @@ class OrderBook {
       ...ptoHelper.formatPoloniexResponse(orderBooks[2].bids),
     ];
   }
+  /**
+   * Sort and Reduce order books
+   */
+  sortAndReduceOrderBook() {
+    const asks = ptoHelper.sortOrders(this.asks, 'ascending');
+    const bids = ptoHelper.sortOrders(this.bids, 'descending');
+    this.asks = ptoHelper.reduceOrders(asks);
+    this.bids = ptoHelper.reduceOrders(bids);
+  }
 };
 
 module.exports = {
