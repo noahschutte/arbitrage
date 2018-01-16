@@ -1,13 +1,11 @@
 import React from 'react';
 
-import MarketSelector from './MarketSelector';
+import Header from '../components/Header';
 import OrderBooksContainer from './OrderBooksContainer';
-import ErrorContainer from './ErrorContainer';
 
 const DashboardPage = () => (
   <div className="dashboard-page">
-    <MarketSelector />
-    <ErrorContainer />
+    <Header />
     <OrderBooksContainer />
   </div>
 );

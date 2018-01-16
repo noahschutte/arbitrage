@@ -1,13 +1,20 @@
 .order-book-title {
-  color: $off-white;
+  color: $off-black;
   text-align: center;
+  font-size: 3rem;
 }
 
 .highlight {
-  background: $slightly-darker-black;
+  background: $blue;
 }
 
 .table {
-  color: $off-white;
-  justify-content: center;
+  color: $off-black;
+  font-size: 1rem;
+}
+
+.order-book-table {
+  float: left;
+  border: solid grey 2px;
+  width: 400px;
 }
