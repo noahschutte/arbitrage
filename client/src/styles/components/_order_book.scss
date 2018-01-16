@@ -15,6 +15,11 @@
 
 .order-book-table {
   float: left;
-  border: solid grey 2px;
+  border: solid $grey 2px;
   width: 400px;
+}
+
+.order-book-container {
+  justify-content: center;
+  align-items: center;
 }

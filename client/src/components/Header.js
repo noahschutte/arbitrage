@@ -4,7 +4,7 @@ import ErrorContainer from './ErrorContainer';
 
 const Header = () => (
   <header className="header">
-    <div className="logo">
+    <div>
       <h1 className="title">Arbitrage</h1>
       <MarketSelector />
       <ErrorContainer />
