@@ -1,5 +1,6 @@
 const orderBooksDTO = require('../dtos/orderBooksDTO');
 const orderBooksPTO = require('../ptos/orderBooksPTO');
+const routeHelpers = require('../helpers/routeHelper');
 
 /**
  * Retrieves, combines, and sorts order books from multiple exchanges
@@ -7,22 +8,8 @@ const orderBooksPTO = require('../ptos/orderBooksPTO');
  * @return {Object} Returns the order books or rejects with an error
  */
 async function getOrderBooks(market) {
-  let firstSymbol;
-  let secondSymbol;
-  switch (market) {
-    case '1':
-      firstSymbol = 'BTC';
-      secondSymbol = 'ETH';
-      break;
-    case '2':
-      firstSymbol = 'BTC';
-      secondSymbol = 'LTC';
-      break;
-    default:
-      firstSymbol = 'BTC';
-      secondSymbol = 'ETH';
-      break;
-  }
+  const firstSymbol = routeHelpers.getSymbol(0, market);
+  const secondSymbol = routeHelpers.getSymbol(1, market);
   const promiseArray = [
     orderBooksDTO.getBinanceOrderBook(firstSymbol, secondSymbol),
     orderBooksDTO.getBittrexOrderBook(firstSymbol, secondSymbol),

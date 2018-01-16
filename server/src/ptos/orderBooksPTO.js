@@ -31,13 +31,23 @@ class OrderBook {
 
   /**
    * Apply highlight to order books
+   * Breaks out of loop if element in array does not have arbitrage opportunity
    */
   applyHighlight() {
-    for (let x = this.asks.length - 1; x >= 0; x--) {
+    let z = false;
+    for (let x = 0; x < this.asks.length; x++) {
+      if (z) {
+        break;
+      }
       for (let y = 0; y < this.bids.length; y++) {
         if (this.asks[x].rate <= this.bids[y].rate) {
           this.asks[x].arbitrage = true;
           this.bids[y].arbitrage = true;
+        } else {
+          if (y === 0) {
+            z = true;
+          }
+          break;
         }
       }
     }
