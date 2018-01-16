@@ -38,15 +38,9 @@ MarketSelector.propTypes = {
   market: PropTypes.number.isRequired,
 };
 
-// const mapStateToProps = ({ orderBooks }) => ({ orderBooks });
-
 const mapStateToProps = ({ orderBooks }) => {
-  const {
-    market,
-  } = orderBooks;
-  return {
-    market,
-  };
+  const { market } = orderBooks;
+  return { market };
 };
 
 export default connect(mapStateToProps)(MarketSelector);
