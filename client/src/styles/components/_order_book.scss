@@ -10,16 +10,17 @@
 
 .table {
   color: $off-black;
-  font-size: 1rem;
+  font-size: .4rem;
 }
 
 .order-book-table {
   float: left;
-  border: solid $grey 2px;
-  width: 400px;
+  border: solid $grey .1px;
+  width: 450px;
 }
 
 .order-book-container {
+  margin-top: 10px;
   justify-content: center;
   align-items: center;
 }
